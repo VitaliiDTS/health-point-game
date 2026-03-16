@@ -10,6 +10,60 @@ class HomePage extends StatelessWidget {
 
   static void _emptyAction() {}
 
+  static const _newRequests = [
+    TableCard(
+      tableNumber: 2,
+      statusText: 'New',
+      statusColor: AppColors.statusNewBackground,
+      statusTextColor: AppColors.statusNewText,
+      requestText: 'Waiter call',
+      buttonText: 'Accept',
+      onPressed: _emptyAction,
+    ),
+    TableCard(
+      tableNumber: 5,
+      statusText: 'Bill',
+      statusColor: AppColors.statusBillBackground,
+      statusTextColor: AppColors.statusBillText,
+      requestText: 'Bill request',
+      buttonText: 'Accept',
+      onPressed: _emptyAction,
+    ),
+  ];
+
+  static const _myTables = [
+    TableCard(
+      tableNumber: 1,
+      statusText: 'Assigned',
+      statusColor: AppColors.statusAssignedBackground,
+      statusTextColor: AppColors.statusAssignedText,
+      requestText: 'Serving table',
+      assignedTo: 'Andrii',
+      buttonText: 'Close table',
+      onPressed: _emptyAction,
+    ),
+    TableCard(
+      tableNumber: 4,
+      statusText: 'Bill',
+      statusColor: AppColors.statusBillBackground,
+      statusTextColor: AppColors.statusBillText,
+      requestText: 'Bill request',
+      assignedTo: 'Andrii',
+      buttonText: 'Close table',
+      onPressed: _emptyAction,
+    ),
+    TableCard(
+      tableNumber: 6,
+      statusText: 'Assigned',
+      statusColor: AppColors.statusAssignedBackground,
+      statusTextColor: AppColors.statusAssignedText,
+      requestText: 'Waiter call',
+      assignedTo: 'Andrii',
+      buttonText: 'Close table',
+      onPressed: _emptyAction,
+    ),
+  ];
+
   void _openProfile(BuildContext context) {
     Navigator.push(
       context,
@@ -21,60 +75,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final newRequests = [
-      const TableCard(
-        tableNumber: 2,
-        statusText: 'New',
-        statusColor: AppColors.statusNewBackground,
-        statusTextColor: AppColors.statusNewText,
-        requestText: 'Waiter call',
-        buttonText: 'Accept',
-        onPressed: _emptyAction,
-      ),
-      const TableCard(
-        tableNumber: 5,
-        statusText: 'Bill',
-        statusColor: AppColors.statusBillBackground,
-        statusTextColor: AppColors.statusBillText,
-        requestText: 'Bill request',
-        buttonText: 'Accept',
-        onPressed: _emptyAction,
-      ),
-    ];
-
-    final myTables = [
-      const TableCard(
-        tableNumber: 1,
-        statusText: 'Assigned',
-        statusColor: AppColors.statusAssignedBackground,
-        statusTextColor: AppColors.statusAssignedText,
-        requestText: 'Serving table',
-        assignedTo: 'Andrii',
-        buttonText: 'Close table',
-        onPressed: _emptyAction,
-      ),
-      const TableCard(
-        tableNumber: 4,
-        statusText: 'Bill',
-        statusColor: AppColors.statusBillBackground,
-        statusTextColor: AppColors.statusBillText,
-        requestText: 'Bill request',
-        assignedTo: 'Andrii',
-        buttonText: 'Close table',
-        onPressed: _emptyAction,
-      ),
-      const TableCard(
-        tableNumber: 6,
-        statusText: 'Assigned',
-        statusColor: AppColors.statusAssignedBackground,
-        statusTextColor: AppColors.statusAssignedText,
-        requestText: 'Waiter call',
-        assignedTo: 'Andrii',
-        buttonText: 'Close table',
-        onPressed: _emptyAction,
-      ),
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Tables'),
@@ -123,14 +123,14 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 28),
                 const Text('New requests', style: AppTextStyles.sectionTitle),
                 const SizedBox(height: 12),
-                ...newRequests.expand(
-                  (card) => [card, const SizedBox(height: 12)],
+                ..._newRequests.expand(
+                  (Widget card) => [card, const SizedBox(height: 12)],
                 ),
                 const SizedBox(height: 16),
                 const Text('My tables', style: AppTextStyles.sectionTitle),
                 const SizedBox(height: 12),
-                ...myTables.expand(
-                  (card) => [card, const SizedBox(height: 12)],
+                ..._myTables.expand(
+                  (Widget card) => [card, const SizedBox(height: 12)],
                 ),
               ],
             ),

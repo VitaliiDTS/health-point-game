@@ -30,6 +30,11 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
+      _nameController.clear();
+      _emailController.clear();
+      _passwordController.clear();
+      _confirmPasswordController.clear();
+      _formKey.currentState!.reset();
       Navigator.push(
         context,
         MaterialPageRoute<void>(

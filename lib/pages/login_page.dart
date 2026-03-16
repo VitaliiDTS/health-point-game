@@ -27,6 +27,9 @@ class _LoginPageState extends State<LoginPage> {
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
+      _emailController.clear();
+      _passwordController.clear();
+      _formKey.currentState!.reset();
       Navigator.push(
         context,
         MaterialPageRoute<void>(

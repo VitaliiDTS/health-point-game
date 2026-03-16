@@ -24,6 +24,24 @@ class _AppPasswordFieldState extends State<AppPasswordField> {
   bool _obscured = true;
 
   @override
+  void initState() {
+    super.initState();
+    widget.controller?.addListener(_resetIfEmpty);
+  }
+
+  @override
+  void dispose() {
+    widget.controller?.removeListener(_resetIfEmpty);
+    super.dispose();
+  }
+
+  void _resetIfEmpty() {
+    if ((widget.controller?.text.isEmpty ?? false) && !_obscured) {
+      setState(() => _obscured = true);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
