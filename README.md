@@ -72,8 +72,3 @@ Displays basic information about the staff member.
 - Flutter
 - Dart
 - Material Design
-
-## Purpose
-
-The purpose of this project is educational.  
-It demonstrates how a mobile application can serve as the user interface for a simple IoT service system in a restaurant environment.
